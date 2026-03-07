@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nasimunnisa Sayed | Performance Marketing Strategist & Business Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF8;
+  --surface: #F4F2EE;
+  --surface2: #EDE9E1;
+  --white: #FFFFFF;
+  --border: #E5E1D8;
+  --border-accent: rgba(201,152,58,0.35);
+  --text: #1A1714;
+  --text-muted: #6B6560;
+  --text-dim: #9D9690;
+  --amber: #C9883A;
+  --amber-light: #E5A84C;
+  --amber-pale: #FBF3E6;
+  --amber-border: rgba(201,136,58,0.18);
+  --green: #2D7A55;
+  --green-pale: #EAF5EE;
+  --shadow-sm: 0 1px 4px rgba(26,23,20,0.06);
+  --shadow-md: 0 4px 18px rgba(26,23,20,0.09), 0 2px 6px rgba(26,23,20,0.05);
+  --shadow-lg: 0 12px 40px rgba(26,23,20,0.11), 0 4px 12px rgba(26,23,20,0.06);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+/* PROGRESS BAR */
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--amber), var(--amber-light)); z-index: 999; width: 0%; transition: width 0.1s linear; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,250,248,0.96); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); padding: 0 52px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; font-style: italic; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+.nav-logo span { color: var(--amber); }
+.nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+.nav-links a { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--amber); }
+.nav-cta { padding: 9px 22px !important; background: var(--amber) !important; color: white !important; border-radius: 5px !important; font-weight: 700 !important; letter-spacing: 0.08em !important; transition: all 0.2s !important; box-shadow: 0 2px 8px rgba(201,136,58,0.25) !important; }
+.nav-cta:hover { background: var(--amber-light) !important; color: white !important; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(201,136,58,0.35) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--text); transition: all 0.3s ease; border-radius: 2px; }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); padding: 16px 28px 24px; z-index: 99; flex-direction: column; gap: 0; box-shadow: var(--shadow-md); }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-size: 0.76rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; padding: 13px 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+.mobile-menu a:last-child { border-bottom: none; color: var(--amber); font-weight: 700; padding-top: 18px; }
+.mobile-menu a:hover { color: var(--amber); }
+
+/* LAYOUT */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 44px; }
+.section { padding: 100px 0; }
+.div-l { height: 1px; background: var(--border); max-width: 1160px; margin: 0 auto; }
+.section-label { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.section-label::after { content: ''; flex: 1; max-width: 28px; height: 2px; background: var(--amber); border-radius: 2px; }
+h2.section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.9rem, 2.8vw, 2.7rem); font-weight: 400; line-height: 1.18; color: var(--text); }
+h2.section-title em { font-style: italic; color: var(--amber); }
+.section-sub { margin-top: 12px; font-size: 0.93rem; color: var(--text-muted); max-width: 520px; line-height: 1.9; }
+
+/* HERO */
+#hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 0 70px; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 65% 60% at 80% 25%, rgba(201,136,58,0.08) 0%, transparent 60%), radial-gradient(ellipse 45% 55% at 5% 85%, rgba(201,136,58,0.05) 0%, transparent 55%); }
+.hero-dots { position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(26,23,20,0.055) 1px, transparent 1px); background-size: 30px 30px; }
+.hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 420px; gap: 80px; align-items: center; width: 100%; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); border: 1px solid rgba(45,122,85,0.22); padding: 7px 14px; margin-bottom: 26px; background: var(--green-pale); border-radius: 4px; }
+.badge-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.85)} }
+h1.hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.6rem, 4.2vw, 3.9rem); font-weight: 400; line-height: 1.07; color: var(--text); margin-bottom: 22px; }
+h1.hero-title em { font-style: italic; color: var(--amber); }
+.hero-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.88; max-width: 490px; margin-bottom: 38px; }
+.btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 14px 28px; transition: all 0.25s; cursor: pointer; border: none; border-radius: 5px; }
+.btn-primary { background: var(--amber); color: white; box-shadow: 0 3px 12px rgba(201,136,58,0.28); }
+.btn-primary:hover { background: var(--amber-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,136,58,0.35); }
+.btn-secondary { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
+.btn-secondary:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-pale); }
+
+/* STATS PANEL */
+.stats-panel { background: var(--white); border: 1px solid var(--border); box-shadow: var(--shadow-lg); border-radius: 10px; overflow: hidden; }
+.stats-panel-top { height: 3px; background: linear-gradient(90deg, var(--amber), var(--amber-light)); }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.stat-box { padding: 28px 26px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: background 0.2s; }
+.stat-box:nth-child(2), .stat-box:nth-child(4) { border-right: none; }
+.stat-box:nth-child(3), .stat-box:nth-child(4) { border-bottom: none; }
+.stat-box:hover { background: var(--amber-pale); }
+.stat-num { font-family: 'DM Serif Display', serif; font-size: 2.7rem; font-weight: 400; line-height: 1; color: var(--amber); margin-bottom: 6px; }
+.stat-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; line-height: 1.45; }
+.stats-footer { padding: 16px 26px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 10px; background: var(--surface); }
+.green-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+.stats-note { font-size: 0.74rem; color: var(--text-muted); }
+
+/* ABOUT */
+#about { background: var(--surface); }
+.about-wrap { display: grid; grid-template-columns: 290px 1fr; gap: 72px; align-items: start; }
+.about-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 30px 26px; box-shadow: var(--shadow-md); }
+.avatar { width: 76px; height: 76px; border-radius: 50%; background: linear-gradient(135deg, #FDE8C8, var(--amber-pale)); border: 2px solid var(--amber-border); display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.55rem; font-style: italic; color: var(--amber); margin-bottom: 18px; }
+.about-name { font-family: 'DM Serif Display', serif; font-size: 1.22rem; color: var(--text); margin-bottom: 3px; }
+.about-role { font-size: 0.68rem; color: var(--amber); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 22px; }
+.contact-row { display: flex; align-items: center; gap: 10px; font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; text-decoration: none; transition: color 0.2s; }
+.contact-row:hover { color: var(--amber); }
+.contact-icon { width: 30px; height: 30px; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; background: var(--surface); }
+.contact-icon svg { width: 14px; height: 14px; stroke: var(--amber); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.open-badge { margin-top: 20px; padding: 10px 14px; background: var(--green-pale); border: 1px solid rgba(45,122,85,0.2); font-size: 0.68rem; font-weight: 700; color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; border-radius: 5px; display: flex; align-items: center; gap: 8px; }
+.about-body p { color: var(--text-muted); margin-bottom: 18px; line-height: 1.92; font-size: 0.93rem; }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 36px; }
+.skill-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 22px 18px; transition: all 0.25s; box-shadow: var(--shadow-sm); }
+.skill-card:hover { border-color: var(--amber-border); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.skill-icon { font-size: 1.4rem; margin-bottom: 10px; }
+.skill-title { font-size: 0.72rem; font-weight: 700; color: var(--text); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
+.skill-card ul { list-style: none; }
+.skill-card ul li { font-size: 0.74rem; color: var(--text-muted); padding: 4px 0; border-bottom: 1px solid var(--border); }
+.skill-card ul li:last-child { border-bottom: none; }
+
+/* CAMPAIGNS */
+#campaigns { background: var(--bg); }
+.campaign-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 36px 0; }
+.cs-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 22px 20px; box-shadow: var(--shadow-sm); transition: box-shadow 0.2s; }
+.cs-card:hover { box-shadow: var(--shadow-md); }
+.cs-num { font-family: 'DM Serif Display', serif; font-size: 1.9rem; color: var(--amber); line-height: 1; margin-bottom: 4px; }
+.cs-label { font-size: 0.68rem; color: var(--text-muted); line-height: 1.5; }
+.tabs { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 28px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tab-btn { padding: 11px 20px; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: all 0.2s; margin-bottom: -2px; white-space: nowrap; }
+.tab-btn.active { color: var(--amber); border-bottom-color: var(--amber); }
+.tab-btn:hover { color: var(--text); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.data-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow-sm); }
+.data-table th { font-size: 0.61rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); padding: 13px 16px; text-align: left; background: var(--surface); border-bottom: 1px solid var(--border); }
+.data-table td { padding: 13px 16px; font-size: 0.8rem; color: var(--text-muted); border-bottom: 1px solid var(--border); transition: background 0.15s; vertical-align: middle; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: var(--amber-pale); color: var(--text); }
+.model-tag { display: inline-block; padding: 3px 9px; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; border-radius: 4px; }
+.CPS { background: #FEF3C7; color: #92400E; }
+.CPA { background: #D1FAE5; color: #065F46; }
+.CPL { background: #DBEAFE; color: #1E40AF; }
+.CPV { background: #EDE9FE; color: #5B21B6; }
+.CPM { background: #FEE2E2; color: #991B1B; }
+.CPR { background: #FCE7F3; color: #9D174D; }
+.MIX { background: var(--surface); color: var(--text-muted); }
+.margin-bar { display: flex; align-items: center; gap: 8px; }
+.bar-track { flex: 1; height: 4px; background: var(--border); max-width: 72px; border-radius: 2px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--amber), var(--amber-light)); border-radius: 2px; }
+.roi-tag { font-size: 0.72rem; font-weight: 700; color: var(--green); }
+
+/* AI SECTION */
+#ai { background: var(--surface); }
+.ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 44px; }
+.ai-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 30px 26px; transition: all 0.25s; box-shadow: var(--shadow-sm); position: relative; overflow: hidden; }
+.ai-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--amber), transparent); opacity: 0; transition: opacity 0.25s; }
+.ai-card:hover { border-color: var(--amber-border); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.ai-card:hover::before { opacity: 1; }
+.ai-num { font-family: 'DM Serif Display', serif; font-size: 2.8rem; font-style: italic; line-height: 1; margin-bottom: 14px; -webkit-text-stroke: 1px var(--amber-border); color: transparent; }
+.ai-title { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 9px; }
+.ai-desc { font-size: 0.81rem; color: var(--text-muted); line-height: 1.88; }
+.crm-block { margin-top: 44px; background: var(--white); border: 1px solid var(--amber-border); border-radius: 10px; padding: 38px; position: relative; box-shadow: var(--shadow-sm); }
+.crm-tag { position: absolute; top: 20px; right: 20px; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; color: var(--amber); border: 1px solid var(--amber-border); padding: 3px 9px; background: var(--amber-pale); border-radius: 3px; text-transform: uppercase; }
+.crm-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--text); margin-bottom: 6px; }
+.crm-sub { font-size: 0.84rem; color: var(--text-muted); margin-bottom: 26px; }
+.crm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.crm-item { padding: 18px; border: 1px solid var(--border); background: var(--surface); border-radius: 6px; transition: border-color 0.2s; }
+.crm-item:hover { border-color: var(--amber-border); }
+.crm-item-title { font-size: 0.78rem; font-weight: 700; color: var(--amber); margin-bottom: 6px; }
+.crm-item-desc { font-size: 0.74rem; color: var(--text-muted); line-height: 1.78; }
+.tech-stack { margin-top: 28px; padding: 22px 26px; border: 1px solid var(--border); background: var(--white); border-radius: 8px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.tech-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); flex-shrink: 0; }
+.tech-tags { display: flex; gap: 7px; flex-wrap: wrap; }
+.tech-tag { font-size: 0.7rem; font-weight: 600; color: var(--text-muted); padding: 5px 13px; border: 1px solid var(--border); border-radius: 4px; transition: all 0.2s; background: var(--surface); }
+.tech-tag:hover { border-color: var(--amber); color: var(--amber); background: var(--amber-pale); }
+
+/* BRANDS */
+#brands { background: var(--bg); }
+.marquee { overflow: hidden; position: relative; padding: 8px 0; margin-top: 38px; }
+.marquee::before, .marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; }
+.marquee::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+.marquee::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+.marquee-track { display: flex; width: max-content; animation: scroll 34s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes scroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.brand-item { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-dim); padding: 10px 26px; border-right: 1px solid var(--border); white-space: nowrap; transition: color 0.2s; cursor: default; }
+.brand-item:hover { color: var(--amber); }
+.sector-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 34px; }
+.sector-card { padding: 22px 14px; text-align: center; border: 1px solid var(--border); background: var(--white); border-radius: 8px; transition: all 0.2s; box-shadow: var(--shadow-sm); }
+.sector-card:hover { border-color: var(--amber-border); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.sector-icon { font-size: 1.5rem; margin-bottom: 7px; }
+.sector-count { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--amber); }
+.sector-name { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-top: 3px; }
+
+/* CHANNELS */
+#channels { background: var(--surface); }
+.channel-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 38px; }
+.channel-card { padding: 26px 20px; border: 1px solid var(--border); background: var(--white); border-radius: 8px; transition: all 0.25s; box-shadow: var(--shadow-sm); }
+.channel-card:hover { border-color: var(--amber-border); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.channel-icon { width: 40px; height: 40px; border-radius: 8px; background: var(--amber-pale); border: 1px solid var(--amber-border); display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.channel-icon svg { width: 18px; height: 18px; stroke: var(--amber); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.channel-name { font-size: 0.84rem; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+.channel-desc { font-size: 0.73rem; color: var(--text-muted); line-height: 1.72; }
+
+/* CASES */
+#cases { background: var(--bg); }
+.case-list { margin-top: 46px; }
+.case-row { display: grid; grid-template-columns: 56px 1fr 170px; gap: 36px; align-items: start; padding: 46px 0; border-bottom: 1px solid var(--border); }
+.case-row:first-child { border-top: 1px solid var(--border); }
+.case-num { font-family: 'DM Serif Display', serif; font-size: 2.3rem; font-style: italic; color: var(--amber-border); line-height: 1; }
+.case-sector { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 9px; }
+.case-title { font-family: 'DM Serif Display', serif; font-size: 1.48rem; color: var(--text); margin-bottom: 12px; line-height: 1.25; }
+.case-body { font-size: 0.84rem; color: var(--text-muted); line-height: 1.92; margin-bottom: 16px; }
+.case-tags { display: flex; gap: 7px; flex-wrap: wrap; }
+.case-tag { font-size: 0.61rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border: 1px solid var(--border); color: var(--text-muted); border-radius: 4px; background: var(--white); }
+.case-metric { text-align: right; }
+.metric-num { font-family: 'DM Serif Display', serif; font-size: 2.9rem; color: var(--amber); line-height: 1; }
+.metric-label { font-size: 0.68rem; color: var(--text-muted); margin-top: 5px; }
+
+/* EXPERIENCE */
+#experience { background: var(--surface); }
+.exp-list { margin-top: 46px; }
+.exp-row { display: grid; grid-template-columns: 180px 1fr; gap: 48px; padding: 42px 0; border-bottom: 1px solid var(--border); }
+.exp-row:first-child { border-top: 1px solid var(--border); }
+.exp-period { font-size: 0.75rem; color: var(--text-dim); padding-top: 4px; line-height: 1.65; }
+.exp-period strong { display: block; color: var(--amber); font-size: 0.66rem; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 4px; }
+.exp-role { font-size: 0.97rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.exp-company { font-size: 0.84rem; color: var(--amber); font-weight: 600; margin-bottom: 16px; }
+.exp-list-items { list-style: none; }
+.exp-list-items li { font-size: 0.82rem; color: var(--text-muted); padding: 5px 0 5px 18px; position: relative; line-height: 1.78; }
+.exp-list-items li::before { content: ''; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--amber-border); border: 1.5px solid var(--amber); }
+
+/* CERTS */
+#certs { background: var(--bg); }
+.cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 38px; }
+.cert-card { padding: 26px 20px; border: 1px solid var(--border); background: var(--white); border-radius: 8px; transition: all 0.25s; box-shadow: var(--shadow-sm); }
+.cert-card:hover { border-color: var(--amber-border); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.cert-icon { width: 42px; height: 42px; border-radius: 8px; background: var(--amber-pale); border: 1px solid var(--amber-border); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 1.3rem; }
+.cert-name { font-size: 0.84rem; font-weight: 700; color: var(--text); margin-bottom: 5px; line-height: 1.4; }
+.cert-org { font-size: 0.68rem; color: var(--amber); font-weight: 600; letter-spacing: 0.04em; }
+
+/* WHY */
+#why { background: var(--surface); }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 46px; }
+.why-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 30px 26px; transition: all 0.25s; box-shadow: var(--shadow-sm); }
+.why-card:hover { border-color: var(--amber-border); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.why-num { font-family: 'DM Serif Display', serif; font-size: 2.6rem; font-style: italic; color: var(--surface2); line-height: 1; margin-bottom: 12px; }
+.why-title { font-size: 0.82rem; font-weight: 700; color: var(--text); margin-bottom: 9px; text-transform: uppercase; letter-spacing: 0.05em; }
+.why-desc { font-size: 0.81rem; color: var(--text-muted); line-height: 1.88; }
+
+/* CONTACT */
+#contact { background: linear-gradient(155deg, var(--surface) 0%, #FBF0E3 100%); position: relative; overflow: hidden; }
+#contact::before { content: ''; position: absolute; top: -80px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(201,136,58,0.09) 0%, transparent 70%); pointer-events: none; }
+.contact-inner { position: relative; z-index: 1; text-align: center; max-width: 700px; margin: 0 auto; }
+.contact-title { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 3.5vw, 3.2rem); line-height: 1.12; color: var(--text); margin-bottom: 18px; }
+.contact-title em { font-style: italic; color: var(--amber); }
+.contact-sub { font-size: 0.93rem; color: var(--text-muted); margin-bottom: 38px; line-height: 1.88; }
+.contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 44px; }
+.contact-info { display: flex; gap: 38px; justify-content: center; flex-wrap: wrap; padding-top: 30px; border-top: 1px solid var(--border); }
+.contact-item { font-size: 0.78rem; color: var(--text-dim); display: flex; align-items: center; gap: 7px; }
+.contact-item a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.contact-item a:hover { color: var(--amber); }
+.contact-item svg { width: 14px; height: 14px; stroke: var(--amber); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+/* FOOTER */
+footer { background: var(--text); padding: 28px 52px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+.footer-name { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1rem; color: rgba(250,250,248,0.65); }
+.footer-copy { font-size: 0.67rem; color: rgba(250,250,248,0.38); }
+.footer-link { font-size: 0.67rem; color: var(--amber-light); text-decoration: none; transition: color 0.2s; }
+.footer-link:hover { color: white; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  nav { padding: 0 22px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .container { padding: 0 22px; }
+  .section { padding: 72px 0; }
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .about-wrap { grid-template-columns: 1fr; gap: 32px; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .ai-grid { grid-template-columns: 1fr; }
+  .crm-grid { grid-template-columns: 1fr 1fr; }
+  .campaign-stats { grid-template-columns: repeat(2, 1fr); }
+  .sector-grid { grid-template-columns: repeat(3, 1fr); }
+  .channel-grid { grid-template-columns: repeat(2, 1fr); }
+  .case-row { grid-template-columns: 1fr; gap: 14px; }
+  .case-metric { text-align: left; }
+  .exp-row { grid-template-columns: 1fr; gap: 10px; }
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  footer { flex-direction: column; text-align: center; padding: 24px 22px; }
+  .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+  .tech-stack { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+@media(max-width:600px){
+  h1.hero-title { font-size: 2.35rem; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .crm-grid { grid-template-columns: 1fr; }
+  .channel-grid { grid-template-columns: 1fr 1fr; }
+  .cert-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .campaign-stats { grid-template-columns: 1fr 1fr; }
+  .sector-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-info { flex-direction: column; align-items: center; gap: 14px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Nasim<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#campaigns">Campaigns</a></li>
+    <li><a href="#ai">AI Work</a></li>
+    <li><a href="#brands">Brands</a></li>
+    <li><a href="#cases">Case Studies</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#campaigns" onclick="closeMobile()">Campaigns</a>
+  <a href="#ai" onclick="closeMobile()">AI Work</a>
+  <a href="#brands" onclick="closeMobile()">Brands</a>
+  <a href="#cases" onclick="closeMobile()">Case Studies</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#contact" onclick="closeMobile()">Hire Me →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge"><div class="badge-dot"></div>Open to New Opportunities · Mumbai</div>
+        <h1 class="hero-title">Performance Marketing<br>Powered by <em>AI &amp; Data</em></h1>
+        <p class="hero-desc">7+ years driving measurable growth across 100+ brands in BFSI, E-commerce, Auto, EdTech &amp; Luxury. I turn campaign data into strategy, with margins from 10% to 60% and maximum ROI, every time.</p>
+        <div class="btns">
+          <a href="#campaigns" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            View Campaign Portfolio
+          </a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+      <div class="stats-panel reveal">
+        <div class="stats-panel-top"></div>
+        <div class="stats-grid">
+          <div class="stat-box"><div class="stat-num">11×</div><div class="stat-label">Max Campaign Scale</div></div>
+          <div class="stat-box"><div class="stat-num">₹1Cr+</div><div class="stat-label">Ad Budgets Managed</div></div>
+          <div class="stat-box"><div class="stat-num">70%+</div><div class="stat-label">ROI Improvement</div></div>
+          <div class="stat-box"><div class="stat-num">100+</div><div class="stat-label">Brands Worked With</div></div>
+        </div>
+        <div class="stats-footer">
+          <div class="green-dot"></div>
+          <div class="stats-note"><strong style="color:var(--text)">4+ years</strong> of continuous delivery · Jul 2021 to Present</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-l"></div>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-card reveal">
+        <div class="avatar">NS</div>
+        <div class="about-name">Nasimunnisa Sayed</div>
+        <div class="about-role">Performance Marketer &amp; Business Analyst</div>
+        <a href="mailto:nasimsayed98@gmail.com" class="contact-row">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+          nasimsayed98@gmail.com
+        </a>
+        <a href="tel:+919137710364" class="contact-row">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.41 12 19.79 19.79 0 0 1 1.3 3.42a2 2 0 0 1 1.99-2.18H6.3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16h1.92z"/></svg></div>
+          +91 91377 10364
+        </a>
+        <a href="https://linkedin.com/in/nasim-sayed22b631201" target="_blank" class="contact-row">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          LinkedIn Profile
+        </a>
+        <div class="contact-row" style="cursor:default">
+          <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          Mumbai · Open to Relocation
+        </div>
+        <div class="open-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Actively Looking
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label reveal">About Me</div>
+        <h2 class="section-title reveal">Bridging Data Strategy<br>with <em>Intelligent Execution</em></h2>
+        <div class="about-body" style="margin-top:24px">
+          <p class="reveal">I am a Performance Marketing and Business Analyst professional with 7+ years of experience driving growth across AdTech, SaaS, and Education. My strength lies in turning complex campaign data into clear business strategy, across CPA, CPL, CPS, CPV, CPM, and CPR models, while maintaining consistent margins of 10% to 60% and maximising ROI for every client.</p>
+          <p class="reveal">I have managed $50K+ monthly ad spends, onboarded 30+ clients and 80+ vendors, and delivered 70%+ ROI improvements. Currently serving as Business Head (Global) at Afilienet Ads, overseeing campaigns across India, UAE, Singapore, Philippines, and the US. I bring analytical rigour and hands-on execution to every engagement and am actively seeking roles in Performance Marketing, Digital Strategy, or Business Analytics.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <div class="skill-icon">📈</div>
+            <div class="skill-title">Performance</div>
+            <ul><li>CPA, CPL, CPS, CPV, CPM</li><li>Affiliate Marketing</li><li>Budget Optimisation</li><li>Funnel Tracking</li><li>Conversion Rate Opt.</li></ul>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">📊</div>
+            <div class="skill-title">Strategy &amp; Analytics</div>
+            <ul><li>Media Planning</li><li>KPI Forecasting</li><li>MIS Reporting</li><li>Margin Management</li><li>Market Analysis</li></ul>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">🤝</div>
+            <div class="skill-title">Operations</div>
+            <ul><li>Team Leadership</li><li>Vendor Management</li><li>Client Success</li><li>Publisher Relations</li><li>Global Campaigns</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-l"></div>
+
+<!-- CAMPAIGNS -->
+<section id="campaigns" class="section">
+  <div class="container">
+    <div class="section-label reveal">Campaign Portfolio</div>
+    <h2 class="section-title reveal">4+ Years of <em>Real Campaigns</em></h2>
+    <p class="section-sub reveal">Jul 2021 to Present. All models. All margins. Maximum ROI.</p>
+    <div class="campaign-stats">
+      <div class="cs-card reveal"><div class="cs-num">6+</div><div class="cs-label">Pricing Models Used</div></div>
+      <div class="cs-card reveal"><div class="cs-num">10–60%</div><div class="cs-label">Margin Range Maintained</div></div>
+      <div class="cs-card reveal"><div class="cs-num">Max</div><div class="cs-label">ROI Consistently Hit</div></div>
+      <div class="cs-card reveal"><div class="cs-num">20+</div><div class="cs-label">Channels Deployed</div></div>
+    </div>
+    <div class="tabs reveal">
+      <button class="tab-btn active" onclick="showTab(event,'ecomm')">E-Commerce &amp; Lifestyle</button>
+      <button class="tab-btn" onclick="showTab(event,'bfsi')">BFSI &amp; Finance</button>
+      <button class="tab-btn" onclick="showTab(event,'auto')">Automobile</button>
+      <button class="tab-btn" onclick="showTab(event,'edtech')">EdTech</button>
+      <button class="tab-btn" onclick="showTab(event,'realty')">Real Estate</button>
+      <button class="tab-btn" onclick="showTab(event,'global')">Global</button>
+    </div>
+    <div id="t-ecomm" class="tab-panel active">
+      <table class="data-table"><thead><tr><th>Brand</th><th>Period</th><th>Model</th><th>Deal Structure</th><th>Margin</th><th>ROI</th></tr></thead><tbody>
+        <tr><td><strong>AJIO</strong></td><td>Jun 2022 – Nov 2023</td><td><span class="model-tag CPS">CPS+CPV</span></td><td>New User 11.40% · Old User 5.70%</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div>25%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Lancôme</strong></td><td>Jun 2022 – Nov 2023</td><td><span class="model-tag CPS">CPS+CPV</span></td><td>Revenue share model</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div>25%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Kérastase</strong></td><td>Aug – Nov 2023</td><td><span class="model-tag CPS">CPS+CPV</span></td><td>Revenue share model</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div>25%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Apollo 24/7</strong></td><td>Oct 2022 – Nov 2023</td><td><span class="model-tag CPS">CPS</span></td><td>10–30% client deal · ₹250/order</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div>10–30%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Booking.com</strong></td><td>Dec 2022 – Jan 2023</td><td><span class="model-tag CPS">CPS</span></td><td>10% standard model</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:17%"></div></div>10%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Wow Skin Science</strong></td><td>Dec 2022 – Feb 2023</td><td><span class="model-tag CPS">CPS</span></td><td>B1G1 + Flat 60% discount</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>~20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Colgate</strong></td><td>Jun 2023 – Feb 2025</td><td><span class="model-tag CPR">CPR</span></td><td>Registration + engagement model</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>~18%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Moglix</strong></td><td>Jun – Nov 2025</td><td><span class="model-tag CPS">CPS</span></td><td>B2B marketplace direct + affiliate</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>Optimised</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+      </tbody></table>
+    </div>
+    <div id="t-bfsi" class="tab-panel">
+      <table class="data-table"><thead><tr><th>Brand</th><th>Period</th><th>Model</th><th>Campaign Type</th><th>Margin</th><th>ROI</th></tr></thead><tbody>
+        <tr><td><strong>Kotak 811</strong></td><td>Jul 2021 – Nov 2023</td><td><span class="model-tag CPA">CPA</span></td><td>Digital bank account onboarding</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>10–25%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>SBI Cards</strong></td><td>Sep 2021 – Nov 2025</td><td><span class="model-tag CPA">CPA</span></td><td>Credit card approval campaigns</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>10–20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>HDFC Ergo</strong></td><td>Jul 2021 – Feb 2023</td><td><span class="model-tag CPV">CPV</span></td><td>Car insurance + Home insurance</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>15–20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>HDFC Life</strong></td><td>Jul 2021 – Oct 2023</td><td><span class="model-tag CPL">CPL</span></td><td>C2PL, Sanchay Plus, Term Life</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:32%"></div></div>15–20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Bajaj Finserv</strong></td><td>Sep 2021 – Nov 2025</td><td><span class="model-tag CPL">CPL</span></td><td>PL, EMI Card, Dmat, Motor Insurance</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:38%"></div></div>15–25%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Policy Bazaar</strong></td><td>Jul 2021 – Nov 2022</td><td><span class="model-tag CPL">CPL</span></td><td>Term, Health, NRI Investment leads</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>ICICI Prudential MF</strong></td><td>Sep 2021 – Nov 2023</td><td><span class="model-tag CPM">CPM</span></td><td>CPM brand + CSR campaigns</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Angel One</strong></td><td>Feb 2022 – Nov 2023</td><td><span class="model-tag CPA">CPA</span></td><td>Demat account + trading activation</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Standard Chartered</strong></td><td>Feb – Apr 2023</td><td><span class="model-tag CPA">CPA</span></td><td>Credit card approval model</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Amex (MRCC + Plat Travel)</strong></td><td>Feb 2025</td><td><span class="model-tag CPA">CPA</span></td><td>Premium card acquisition</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>Optimised</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+      </tbody></table>
+    </div>
+    <div id="t-auto" class="tab-panel">
+      <table class="data-table"><thead><tr><th>Brand</th><th>Period</th><th>Model</th><th>Campaign Type</th><th>Margin</th><th>ROI</th></tr></thead><tbody>
+        <tr><td><strong>Spinny</strong></td><td>Jul 2021 – Feb 2025</td><td><span class="model-tag CPA">CPA</span></td><td>Inspections, Procurement, L3, Test Drive</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>25–60%</div></td><td><span class="roi-tag">11× Budget Scale</span></td></tr>
+        <tr><td><strong>Bajaj Auto</strong></td><td>Dec 2022 – Jun 2023</td><td><span class="model-tag CPL">CPL</span></td><td>NS125, NS160, NS200, N160, P125, P150</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Honda CB350</strong></td><td>Mar 2022</td><td><span class="model-tag CPL">CPL</span></td><td>Lead generation for new model launch</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Nissan</strong></td><td>Feb – Mar 2023</td><td><span class="model-tag CPL">CPL</span></td><td>CPL + CPC dual model</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:32%"></div></div>15–20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Tata Nexon</strong></td><td>May – Jun 2023</td><td><span class="model-tag CPL">CPL</span></td><td>Lead gen + test drive booking</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Yamaha FZ</strong></td><td>May 2023</td><td><span class="model-tag CPL">CPL</span></td><td>Dealer lead generation</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>TVS (Ronin + Apache)</strong></td><td>May – Jun 2023</td><td><span class="model-tag CPL">CPL</span></td><td>CPL + CPO models</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:32%"></div></div>15–20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Hyundai</strong></td><td>Oct – Nov 2023</td><td><span class="model-tag CPS">CPS</span></td><td>Sales conversion campaign</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Mahindra Citadel</strong></td><td>May 2025</td><td><span class="model-tag CPL">CPL</span></td><td>SUV lead generation</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+      </tbody></table>
+    </div>
+    <div id="t-edtech" class="tab-panel">
+      <table class="data-table"><thead><tr><th>Brand</th><th>Period</th><th>Model</th><th>Campaign Type</th><th>Margin</th><th>ROI</th></tr></thead><tbody>
+        <tr><td><strong>NMIMS</strong></td><td>Nov 2021 – Apr 2023</td><td><span class="model-tag CPL">CPL</span></td><td>Admissions lead generation</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>IIM Kashipur</strong></td><td>Jan – Mar 2022, Jan 2025</td><td><span class="model-tag CPL">CPQL</span></td><td>MBA Analytics, GM02 programs</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>IIM Indore</strong></td><td>Jan – Nov 2022</td><td><span class="model-tag CPL">CPL</span></td><td>EPGCPM, Change Management</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Manipal University</strong></td><td>Dec 2022 – May 2023</td><td><span class="model-tag CPL">CPL</span></td><td>CPL + CPC dual model</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>upGrad</strong></td><td>Sep – Nov 2025</td><td><span class="model-tag CPL">CPQL</span></td><td>Qualified leads + CPS additional PO</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Amity University</strong></td><td>Apr – Jul 2025</td><td><span class="model-tag CPL">CPL</span></td><td>MBA &amp; direct admission campaigns</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Veranda (GIM / XLRI / IIM)</strong></td><td>Jun 2023</td><td><span class="model-tag CPL">CPL</span></td><td>Multiple B-school programs</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Stockedge / Elearn Markets</strong></td><td>Feb – May 2025</td><td><span class="model-tag CPL">CPL</span></td><td>Finance education + CPR model</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Bookscape</strong></td><td>Aug 2025</td><td><span class="model-tag CPL">CPL</span></td><td>Direct + affiliate book discovery</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+      </tbody></table>
+    </div>
+    <div id="t-realty" class="tab-panel">
+      <table class="data-table"><thead><tr><th>Brand</th><th>Period</th><th>Model</th><th>Campaign Type</th><th>Margin</th><th>ROI</th></tr></thead><tbody>
+        <tr><td><strong>Godrej Properties (15+ projects)</strong></td><td>Jul 2021 – Mar 2023</td><td><span class="model-tag CPL">CPL</span></td><td>Royale, Nest, Azure, Meadows, Urban Park...</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Columbia Pacific Communities</strong></td><td>Jul 2021 – Sep 2023</td><td><span class="model-tag CPL">CPL</span></td><td>Senior living lead gen (Bangalore + Amara)</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:32%"></div></div>18%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>DLF</strong></td><td>Feb – Jul 2025</td><td><span class="model-tag CPL">CPL</span></td><td>Premium residential property leads</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Hiranandani (Parks + Golden Willow)</strong></td><td>Jan – Apr 2025</td><td><span class="model-tag CPL">CPL</span></td><td>Residential &amp; township leads</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Lodha Properties</strong></td><td>Aug 2022</td><td><span class="model-tag CPL">CPL</span></td><td>Residential property leads</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Aditya Birla Home Loan</strong></td><td>Mar – Apr 2023</td><td><span class="model-tag CPL">CPL</span></td><td>Home loan acquisition</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>18%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+      </tbody></table>
+    </div>
+    <div id="t-global" class="tab-panel">
+      <table class="data-table"><thead><tr><th>Brand</th><th>Period</th><th>Model</th><th>Region</th><th>Margin</th><th>ROI</th></tr></thead><tbody>
+        <tr><td><strong>Semrush</strong></td><td>Jun – Jul 2025</td><td><span class="model-tag CPA">CPA</span></td><td>Worldwide</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>GCASH</strong></td><td>Jun – Nov 2025</td><td><span class="model-tag CPR">CPR</span></td><td>Philippines</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>AARP</strong></td><td>Mar 2025</td><td><span class="model-tag CPL">CPL</span></td><td>United States</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Neptune P2P (Travel Risk)</strong></td><td>Jan – Feb 2025</td><td><span class="model-tag CPL">CPL</span></td><td>International</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Ejaby</strong></td><td>Feb 2025</td><td><span class="model-tag CPS">CPS</span></td><td>UAE</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Lalamove</strong></td><td>Apr – Jul 2025</td><td><span class="model-tag CPA">CPA</span></td><td>Multi-market APAC</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>NLCS Singapore</strong></td><td>Jan 2025</td><td><span class="model-tag CPL">CPQL</span></td><td>Singapore</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:35%"></div></div>20%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+        <tr><td><strong>Fastest VPN</strong></td><td>Jun – Jul 2025</td><td><span class="model-tag CPA">CPA</span></td><td>International</td><td><div class="margin-bar"><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div>15%</div></td><td><span class="roi-tag">Maximum</span></td></tr>
+      </tbody></table>
+    </div>
+  </div>
+</section>
+
+<div class="div-l"></div>
+
+<!-- AI WORK -->
+<section id="ai" class="section">
+  <div class="container">
+    <div class="section-label reveal">AI in Practice</div>
+    <h2 class="section-title reveal">Where I Apply AI<br>to <em>Real Marketing Problems</em></h2>
+    <p class="section-sub reveal">I have built and used AI tools where they genuinely save time and improve decisions, not as a label, but as a working part of my process.</p>
+    <div class="ai-grid">
+      <div class="ai-card reveal">
+        <div class="ai-num">01</div>
+        <div class="ai-title">Campaign Insight Chatbot</div>
+        <div class="ai-desc">Built using OpenAI API and Google Vertex AI to pull real-time campaign performance data and surface insights on demand. Reduced the time spent on manual reporting and made it faster to spot anomalies and act on them.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-num">02</div>
+        <div class="ai-title">Automated Reporting Workflows</div>
+        <div class="ai-desc">Set up automated pipelines that collect, structure, and summarise campaign data across clients. This freed up hours each week that were previously spent on repetitive reporting tasks and allowed more focus on optimisation.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-num">03</div>
+        <div class="ai-title">Prompt Frameworks for Analysis</div>
+        <div class="ai-desc">Designed structured prompt systems for diagnosing campaign performance, identifying patterns across CPA, CPL, CPS, and CPV models, and generating actionable recommendations quickly during client review calls.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-num">04</div>
+        <div class="ai-title">Predictive Budget Modelling</div>
+        <div class="ai-desc">Currently building a predictive model using Python and AI to forecast campaign outcomes and guide budget decisions across accounts. Early results are informing how we set margin targets and allocate spend.</div>
+      </div>
+    </div>
+    <div class="crm-block reveal">
+      <div class="crm-tag">In Progress</div>
+      <div class="crm-title">AI Applied to Sales Pipeline and CRM</div>
+      <div class="crm-sub">Exploring and partly implementing AI tools across the revenue funnel, from lead intake to retention.</div>
+      <div class="crm-grid">
+        <div class="crm-item"><div class="crm-item-title">Lead Scoring</div><div class="crm-item-desc">Using AI to score inbound CPL leads by intent signals and prioritise follow-ups, reducing wasted sales effort.</div></div>
+        <div class="crm-item"><div class="crm-item-title">CRM Enrichment</div><div class="crm-item-desc">Pulling campaign source data and publisher attribution into CRM records automatically for smarter segmentation.</div></div>
+        <div class="crm-item"><div class="crm-item-title">Churn Signals</div><div class="crm-item-desc">Identifying early churn risk in subscription and fintech accounts to trigger re-engagement before it is too late.</div></div>
+        <div class="crm-item"><div class="crm-item-title">Attribution Modelling</div><div class="crm-item-desc">Multi-touch attribution across pricing models to accurately connect campaign spend to actual revenue generated.</div></div>
+        <div class="crm-item"><div class="crm-item-title">Conversational Qualification</div><div class="crm-item-desc">Chatbot flows that qualify leads and hand off to sales with full context, cutting response time significantly.</div></div>
+        <div class="crm-item"><div class="crm-item-title">Revenue Forecasting</div><div class="crm-item-desc">Using historical campaign data to project revenue and guide budget allocation across all active accounts.</div></div>
+      </div>
+    </div>
+    <div class="tech-stack reveal">
+      <div class="tech-label">Tools I Work With</div>
+      <div class="tech-tags">
+        <div class="tech-tag">OpenAI API</div>
+        <div class="tech-tag">Google Vertex AI</div>
+        <div class="tech-tag">Azure AI Studio</div>
+        <div class="tech-tag">Microsoft Copilot</div>
+        <div class="tech-tag">Python</div>
+        <div class="tech-tag">Power BI</div>
+        <div class="tech-tag">Google Analytics</div>
+        <div class="tech-tag">AppsFlyer</div>
+        <div class="tech-tag">HasOffers</div>
+        <div class="tech-tag">DV360</div>
+        <div class="tech-tag">Adjust</div>
+        <div class="tech-tag">Kochava</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-l"></div>
+
+<!-- BRANDS -->
+<section id="brands" class="section">
+  <div class="container">
+    <div class="section-label reveal">Brands and Partners</div>
+    <h2 class="section-title reveal">100+ Brands, <em>Every Sector</em></h2>
+    <p class="section-sub reveal">From BFSI giants to global D2C challengers, continuous delivery across 4+ years.</p>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <div class="brand-item">Spinny</div><div class="brand-item">AJIO</div><div class="brand-item">Lancôme</div><div class="brand-item">Kérastase</div><div class="brand-item">Apollo</div><div class="brand-item">Kotak 811</div><div class="brand-item">SBI Cards</div><div class="brand-item">HDFC Ergo</div><div class="brand-item">HDFC Life</div><div class="brand-item">Bajaj Finserv</div><div class="brand-item">Policy Bazaar</div><div class="brand-item">Airtel</div><div class="brand-item">Booking.com</div><div class="brand-item">upGrad</div><div class="brand-item">NMIMS</div><div class="brand-item">Godrej</div><div class="brand-item">DLF</div><div class="brand-item">Colgate</div><div class="brand-item">Angel One</div><div class="brand-item">Kalyan Matrimony</div><div class="brand-item">Tata Motors</div><div class="brand-item">Bajaj Auto</div><div class="brand-item">Nissan</div><div class="brand-item">Honda</div><div class="brand-item">Hyundai</div><div class="brand-item">Amex</div><div class="brand-item">Standard Chartered</div><div class="brand-item">Asian Paints</div><div class="brand-item">Aditya Birla</div><div class="brand-item">Moglix</div><div class="brand-item">Semrush</div><div class="brand-item">Wow Skin Science</div><div class="brand-item">Max Life</div><div class="brand-item">Manipal</div><div class="brand-item">Stockedge</div><div class="brand-item">Paysense</div><div class="brand-item">ICICI Prudential</div><div class="brand-item">Cadbury</div><div class="brand-item">Mahindra</div><div class="brand-item">Hiranandani</div>
+      <div class="brand-item">Spinny</div><div class="brand-item">AJIO</div><div class="brand-item">Lancôme</div><div class="brand-item">Kérastase</div><div class="brand-item">Apollo</div><div class="brand-item">Kotak 811</div><div class="brand-item">SBI Cards</div><div class="brand-item">HDFC Ergo</div><div class="brand-item">HDFC Life</div><div class="brand-item">Bajaj Finserv</div><div class="brand-item">Policy Bazaar</div><div class="brand-item">Airtel</div><div class="brand-item">Booking.com</div><div class="brand-item">upGrad</div><div class="brand-item">NMIMS</div><div class="brand-item">Godrej</div><div class="brand-item">DLF</div><div class="brand-item">Colgate</div><div class="brand-item">Angel One</div><div class="brand-item">Kalyan Matrimony</div><div class="brand-item">Tata Motors</div><div class="brand-item">Bajaj Auto</div><div class="brand-item">Nissan</div><div class="brand-item">Honda</div><div class="brand-item">Hyundai</div><div class="brand-item">Amex</div><div class="brand-item">Standard Chartered</div><div class="brand-item">Asian Paints</div><div class="brand-item">Aditya Birla</div><div class="brand-item">Moglix</div><div class="brand-item">Semrush</div><div class="brand-item">Wow Skin Science</div><div class="brand-item">Max Life</div><div class="brand-item">Manipal</div><div class="brand-item">Stockedge</div><div class="brand-item">Paysense</div><div class="brand-item">ICICI Prudential</div><div class="brand-item">Cadbury</div><div class="brand-item">Mahindra</div><div class="brand-item">Hiranandani</div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="sector-grid reveal">
+      <div class="sector-card"><div class="sector-icon">🏦</div><div class="sector-count">25+</div><div class="sector-name">BFSI</div></div>
+      <div class="sector-card"><div class="sector-icon">🛍️</div><div class="sector-count">15+</div><div class="sector-name">E-Commerce</div></div>
+      <div class="sector-card"><div class="sector-icon">🚗</div><div class="sector-count">12+</div><div class="sector-name">Automobile</div></div>
+      <div class="sector-card"><div class="sector-icon">🎓</div><div class="sector-count">15+</div><div class="sector-name">EdTech</div></div>
+      <div class="sector-card"><div class="sector-icon">🏠</div><div class="sector-count">20+</div><div class="sector-name">Real Estate</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="div-l"></div>
+
+<!-- CHANNELS -->
+<section id="channels" class="section">
+  <div class="container">
+    <div class="section-label reveal">Delivery Channels</div>
+    <h2 class="section-title reveal">Multi-Channel <em>Campaign Execution</em></h2>
+    <p class="section-sub reveal">Every campaign deployed across the right channel mix, tailored per client and audience.</p>
+    <div class="channel-grid">
+      <div class="channel-card reveal">
+        <div class="channel-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="channel-name">Programmatic and Display</div>
+        <div class="channel-desc">DV360, Google Ads, search, display, and YouTube</div>
+      </div>
+      <div class="channel-card reveal">
+        <div class="channel-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <div class="channel-name">Social Media</div>
+        <div class="channel-desc">Meta (Facebook + Instagram), creative-led performance campaigns</div>
+      </div>
+      <div class="channel-card reveal">
+        <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="channel-name">Affiliate Networks</div>
+        <div class="channel-desc">Premium publisher databases with quality, verified inventory</div>
+      </div>
+      <div class="channel-card reveal">
+        <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="channel-name">Email and SMS</div>
+        <div class="channel-desc">Direct EMM and SMS campaigns for re-engagement and conversion</div>
+      </div>
+      <div class="channel-card reveal">
+        <div class="channel-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <div class="channel-name">App Tracking and MMP</div>
+        <div class="channel-desc">AppsFlyer, Adjust, Branch, Kochava, Singular, Apptrove</div>
+      </div>
+      <div class="channel-card reveal">
+        <div class="channel-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="channel-name">SEO</div>
+        <div class="channel-desc">Organic strategy to complement paid and reduce blended CAC</div>
+      </div>
+      <div class="channel-card reveal">
+        <div class="channel-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg></div>
+        <div class="channel-name">CTV and Video</div>
+        <div class="channel-desc">Connected TV plus CPV for hybrid brand and performance goals</div>
+      </div>
+      <div class="channel-card reveal">
+        <div class="channel-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="channel-name">Global DSPs</div>
+        <div class="channel-desc">International delivery across APAC, UAE, and the US</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-l"></div>
+
+<!-- CASE STUDIES -->
+<section id="cases" class="section" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-label reveal">Case Studies</div>
+    <h2 class="section-title reveal">Campaigns That <em>Defined Results</em></h2>
+    <div class="case-list">
+      <div class="case-row reveal">
+        <div class="case-num">01</div>
+        <div>
+          <div class="case-sector">Automobile · CPA · Affiliate</div>
+          <div class="case-title">Spinny: From ₹1L to ₹11L in Campaign Scale</div>
+          <div class="case-body">Managed Spinny's affiliate campaigns from July 2021 through 2025, covering Inspections, Procurement, L3 Leads, and Test Drive across Auction, BCM, Assured, and Luxury segments. Restructured affiliate sources, implemented multi-tier CPA models, and used source-level performance data to unlock an 11x budget expansion while sustaining margins of 25% to 60% throughout the engagement.</div>
+          <div class="case-tags"><span class="case-tag">CPA Model</span><span class="case-tag">25-60% Margins</span><span class="case-tag">Multi-segment</span><span class="case-tag">4-Year Run</span></div>
+        </div>
+        <div class="case-metric"><div class="metric-num">11×</div><div class="metric-label">Budget Scaled</div></div>
+      </div>
+      <div class="case-row reveal">
+        <div class="case-num">02</div>
+        <div>
+          <div class="case-sector">BFSI · Multi-Brand · CPA and CPL</div>
+          <div class="case-title">6-Month Consistency on ₹2L+ Monthly Budgets</div>
+          <div class="case-body">Stabilised high-budget campaigns for SBI Cards, Kotak 811, HDFC Ergo, and HDFC Life, extending brand consistency from one month to six months through structured budget scheduling, publisher diversification, and systematic optimisation cycles. Maintained margins of 10% to 25% consistently across all accounts.</div>
+          <div class="case-tags"><span class="case-tag">CPA and CPL</span><span class="case-tag">10-25% Margins</span><span class="case-tag">Budget Scheduling</span></div>
+        </div>
+        <div class="case-metric"><div class="metric-num">6×</div><div class="metric-label">Consistency Extended</div></div>
+      </div>
+      <div class="case-row reveal">
+        <div class="case-num">03</div>
+        <div>
+          <div class="case-sector">Multi-Vertical · Portfolio · All Models</div>
+          <div class="case-title">70%+ ROI Improvement Across 100+ Brands</div>
+          <div class="case-body">Applied KPI remapping, reporting automation, and structured performance analysis across a full portfolio spanning BFSI, Auto, E-commerce, EdTech, Real Estate, and Luxury. Margins maintained at 10% to 60% depending on vertical, with maximum ROI and ROAS achieved for every client engagement over 4+ years.</div>
+          <div class="case-tags"><span class="case-tag">All Models</span><span class="case-tag">10-60% Margins</span><span class="case-tag">100+ Brands</span><span class="case-tag">4+ Years</span></div>
+        </div>
+        <div class="case-metric"><div class="metric-num">70%+</div><div class="metric-label">ROI Improvement</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-l"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-label reveal">Experience</div>
+    <h2 class="section-title reveal">A Career Built on <em>Measurable Impact</em></h2>
+    <div class="exp-list">
+      <div class="exp-row reveal">
+        <div class="exp-period"><strong>Current</strong>Jan 2024 – Present</div>
+        <div>
+          <div class="exp-role">Business Head – Global</div>
+          <div class="exp-company">Afilienet Ads Pvt Ltd, Mumbai</div>
+          <ul class="exp-list-items">
+            <li>Defined and executed affiliate and performance marketing strategies across web, mobile, and app-install channels</li>
+            <li>Set, monitored, and optimised KPIs including CPL, CPA, CPI, ROI, LTV, and attribution models to drive scalable growth</li>
+            <li>Managed end-to-end campaign execution, optimisation, analysis, and MIS reporting across 20+ active clients</li>
+            <li>Led team coordination, training, interviews, performance evaluations, and productivity improvement initiatives</li>
+            <li>Oversaw international campaigns across UAE, Singapore, Philippines, and the US</li>
+            <li>Built and maintained relationships with affiliates, publishers, and networks; negotiated commercial terms and ensured compliance</li>
+            <li>Tracked daily performance using AppsFlyer, Adjust, HasOffers, Google Analytics, and other analytics platforms</li>
+            <li>Prepared and presented performance dashboards, forecasts, and strategic reports to leadership and stakeholders</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-row reveal">
+        <div class="exp-period"><strong>Previous</strong>Jul 2021 – Dec 2023</div>
+        <div>
+          <div class="exp-role">Business Analyst</div>
+          <div class="exp-company">Netcore Cloud Pvt Ltd, Mumbai</div>
+          <ul class="exp-list-items">
+            <li>Managed end-to-end web and app marketing campaigns from setup through continuous optimisation and performance analysis</li>
+            <li>Handled publisher selection and coordinated with sales teams on campaign proposals and client onboarding</li>
+            <li>Monitored app performance using click-to-conversion data and shared actionable insights with account managers</li>
+            <li>Prepared detailed MIS, campaign validation reports, EMM reports, and maintained monthly records for audits</li>
+            <li>Used HasOffers, Offer18, Affise, AppsFlyer, Branch, Kochava, Adjust, and Apptrove for campaign setup and tracking</li>
+            <li>Scaled assigned client accounts and campaigns, achieving 4x revenue growth in assigned segments</li>
+            <li>Delivered regular performance updates to publishers and clients, ensuring transparency and consistent execution</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-row reveal">
+        <div class="exp-period"><strong>Earlier</strong>Jan 2020 – Apr 2021</div>
+        <div>
+          <div class="exp-role">Assistant Professor – Information Technology</div>
+          <div class="exp-company">Tolani College of Commerce, Mumbai</div>
+          <ul class="exp-list-items">
+            <li>Taught IT to 11th and 12th grade students and managed the Junior College IT department</li>
+            <li>Oversaw syllabus planning and built strong foundations in analytical thinking and communication</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-row reveal">
+        <div class="exp-period"><strong>Earlier</strong>Jun 2018 – Jan 2020</div>
+        <div>
+          <div class="exp-role">Educator – English and IT</div>
+          <div class="exp-company">Unique Tutorials, Mumbai</div>
+          <ul class="exp-list-items">
+            <li>Taught English and Information Technology to higher secondary students</li>
+            <li>Designed lesson plans and monitored student progress</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-l"></div>
+
+<!-- CERTS -->
+<section id="certs" class="section" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-label reveal">Education and Certifications</div>
+    <h2 class="section-title reveal">Credentials That <em>Back the Work</em></h2>
+    <div class="cert-grid">
+      <div class="cert-card reveal"><div class="cert-icon">🎯</div><div class="cert-name">Google Ads Certification</div><div class="cert-org">Google</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">📱</div><div class="cert-name">Digital Marketing</div><div class="cert-org">Coursera</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🤖</div><div class="cert-name">AI Mastery</div><div class="cert-org">Be10x</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">💡</div><div class="cert-name">AI in Sales and CRM</div><div class="cert-org">Be10x</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">📊</div><div class="cert-name">AI for Marketing Strategy</div><div class="cert-org">Be10x</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">⚡</div><div class="cert-name">ChatGPT and Prompt Engineering</div><div class="cert-org">Be10x</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🔄</div><div class="cert-name">AI Automation and Workflows</div><div class="cert-org">Be10x</div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🎓</div><div class="cert-name">BSc in Information Technology</div><div class="cert-org">Tolani College of Commerce</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="div-l"></div>
+
+<!-- WHY HIRE ME -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="section-label reveal">Why Work With Me</div>
+    <h2 class="section-title reveal">What I Bring to <em>Every Engagement</em></h2>
+    <p class="section-sub reveal">Beyond the numbers, the thinking and execution that produces them.</p>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-num">01</div>
+        <div class="why-title">Strategic and Operational</div>
+        <div class="why-desc">I plan and execute. From media planning and margin modelling to publisher negotiations and live campaign optimisation, I take ownership of the full cycle end to end.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">02</div>
+        <div class="why-title">AI Where It Actually Helps</div>
+        <div class="why-desc">I have built AI tools that genuinely saved time and improved decision quality, specifically in reporting, campaign diagnostics, and budget modelling. I do not apply it for the sake of it.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">03</div>
+        <div class="why-title">Multi-Vertical, Multi-Market</div>
+        <div class="why-desc">100+ brands across BFSI, Auto, EdTech, E-commerce, Real Estate, and Luxury, plus international delivery in UAE, Singapore, Philippines, and the US. That kind of breadth takes years to build.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">04</div>
+        <div class="why-title">Margins That Hold</div>
+        <div class="why-desc">10% to 60% margins maintained across every client, every model. Not luck, a system built through 4+ years of iteration and a clear understanding of what drives profitability in performance marketing.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">05</div>
+        <div class="why-title">Transparent and Accountable</div>
+        <div class="why-desc">Clients and teams know where they stand. I maintain structured reporting, communicate proactively, and take responsibility for outcomes rather than just activities.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-num">06</div>
+        <div class="why-title">Built to Scale</div>
+        <div class="why-desc">From ₹1L to ₹1Cr+ in managed budgets, I have grown campaigns, accounts, and teams. I bring that same growth mindset to every new challenge I take on.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div-l"></div>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="section-label reveal" style="justify-content:center">Let's Work Together</div>
+      <h2 class="contact-title reveal">Ready to Build<br><em>Scalable Growth?</em></h2>
+      <p class="contact-sub reveal">Actively looking for roles in Performance Marketing, Digital Strategy, and Business Analytics. 7+ years of hands-on delivery across 100+ brands. I bring both strategic depth and execution power.</p>
+      <div class="contact-btns reveal">
+        <a href="mailto:nasimsayed98@gmail.com" class="btn btn-primary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Send an Email
+        </a>
+        <a href="https://linkedin.com/in/nasim-sayed22b631201" target="_blank" class="btn btn-secondary">Connect on LinkedIn</a>
+      </div>
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <a href="mailto:nasimsayed98@gmail.com">nasimsayed98@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.41 12 19.79 19.79 0 0 1 1.3 3.42a2 2 0 0 1 1.99-2.18H6.3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16h1.92z"/></svg>
+          <a href="tel:+919137710364">+91 91377 10364</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Mumbai, India
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Nasimunnisa Sayed</div>
+  <div class="footer-copy">© 2025–2026 · Performance Marketing Strategist · Mumbai, India</div>
+  <a href="https://linkedin.com/in/nasim-sayed22b631201" target="_blank" class="footer-link">LinkedIn ↗</a>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progressBar').style.width = (s / h * 100) + '%';
+});
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+
+// Tabs
+function showTab(e, id) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('t-' + id).classList.add('active');
+  e.target.classList.add('active');
+}
+
+// Reveal on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
