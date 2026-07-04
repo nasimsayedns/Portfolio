@@ -1,4 +1,4 @@
-<img width="1747" height="822" alt="image" src="https://github.com/user-attachments/assets/be662359-6b57-49ea-a862-53dcbe69bd6e" /># Portfolio Website
+# Portfolio Website
 
 Personal portfolio of **Nasimunnisa Sayed**
 
